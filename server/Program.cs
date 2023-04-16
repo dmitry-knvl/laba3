@@ -6,45 +6,40 @@ class Program
     static void Main(string[] args)
     {
         // Директория, которую мы будем отображать
-        string directory = @"../client";
+        string directory = "./../../../client";
 
         // Создаем экземпляр HttpListener
-        var listener = new HttpListener();
+        var server = new HttpListener();
 
         // Добавляем префикс, по которому будем слушать запросы
-        listener.Prefixes.Add("http://localhost:8080/");
+        server.Prefixes.Add("http://localhost:8080/");
     
     // Начинаем прослушивание запросов
-        listener.Start();
+        server.Start();
 
         Console.WriteLine("Server started");
 
-        while (true)
-        {
-            // Ждем входящий запрос
-            var context = listener.GetContext();
+        while (true) {
+            HttpListenerContext context = server.GetContext();
+            HttpListenerResponse response = context.Response;
 
-            // Получаем запрашиваемый URL
-            string url = context.Request.Url.LocalPath;
+            string path = directory+context.Request.RawUrl.Replace("%20", " ");
 
-            // Собираем полный путь к файлу
-            string path = directory + url;
+            Console.WriteLine("Raw URL: {0}", context.Request.RawUrl);
 
-            // Если файл существует, отправляем его содержимое в ответ
-            if (File.Exists(path))
-            {
-                context.Response.ContentType = "application/octet-stream";
-                context.Response.ContentLength64 = new FileInfo(path).Length;
-                context.Response.AddHeader("Content-Disposition", "attachment; filename=" + Path.GetFileName(path));
+            if (File.Exists(path)) {
+                Console.WriteLine("URL: {0} ({1}) – OK", context.Request.Url.OriginalString, path);
+                byte[] buffer = File.ReadAllBytes(path);
 
-                using (var stream = File.OpenRead(path))
-                {
-                    stream.CopyTo(context.Response.OutputStream);
-                }
+                response.ContentLength64 = buffer.Length;
+                Stream st = response.OutputStream;
+                st.Write(buffer, 0, buffer.Length);
+
+                context.Response.Close();
             }
-            else
-            {
+            else {
                 // Если файл не найден, отправляем 404 ошибку
+                Console.WriteLine("URL: {0} ({1}) – Not Found", context.Request.Url.OriginalString, path);
                 context.Response.StatusCode = 404;
                 context.Response.Close();
             }
