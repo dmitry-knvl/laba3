@@ -23,7 +23,7 @@ class Program
             HttpListenerContext context = server.GetContext();
             HttpListenerResponse response = context.Response;
 
-            string path = directory+context.Request.RawUrl.Replace("%20", " ");
+            string path = directory+context.Request.RawUrl.Replace("%20", " ")+"index.html";
 
             Console.WriteLine("Raw URL: {0}", context.Request.RawUrl);
 
