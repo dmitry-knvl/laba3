@@ -1,0 +1,9 @@
+E:\ВСЁ\ВУЗ\ТП\ЛабРаб3\bin\Debug\ЛабРаб3.pdb
+E:\ВСЁ\ВУЗ\ТП\ЛабРаб3\bin\Debug\Serverito.dll
+E:\ВСЁ\ВУЗ\ТП\ЛабРаб3\bin\Debug\Serverito.xml
+E:\ВСЁ\ВУЗ\ТП\ЛабРаб3\obj\Debug\ЛабРаб3.csproj.AssemblyReference.cache
+E:\ВСЁ\ВУЗ\ТП\ЛабРаб3\obj\Debug\ЛабРаб3.csproj.CoreCompileInputs.cache
+E:\ВСЁ\ВУЗ\ТП\ЛабРаб3\obj\Debug\ЛабРаб3.csproj.CopyComplete
+E:\ВСЁ\ВУЗ\ТП\ЛабРаб3\obj\Debug\ЛабРаб3.pdb
+E:\ВСЁ\ВУЗ\ТП\ЛабРаб3\bin\Debug\ЛабРаб3.exe
+E:\ВСЁ\ВУЗ\ТП\ЛабРаб3\obj\Debug\ЛабРаб3.exe
