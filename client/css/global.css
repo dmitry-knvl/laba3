@@ -9,9 +9,9 @@ html{
 body{
     width: 100vw;
     min-height: 100vh;
-    font-family: sans-serif;
+    font-family: "MontserratAlternates", sans-serif;
     background-color: #9F7E4C;
-    font-size: 14px;
+    font-size: 30px;
     font-weight: 400;
     color: black;
     line-height: 1;
@@ -47,4 +47,8 @@ figure{
 
 button{
     cursor: pointer;
+}
+
+.text{
+    padding-left: 2vw;
 }

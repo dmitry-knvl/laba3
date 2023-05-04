@@ -17,6 +17,12 @@
 }
 
 .variant__btn{
+    font-family: "MontserratAlternates", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    border: none;
+    border-radius: 30px;
+    background: #FFFBE8;
     height: 7vh;
-    width: 10vw;
+    width: 18vw;
 }

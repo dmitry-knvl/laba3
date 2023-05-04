@@ -13,6 +13,7 @@
 }
 
 .table-scheme{
+    background: #FFFBE8;
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 1;
@@ -20,6 +21,7 @@
 }
 
 .graph-scheme{
+    background: #FFFBE8;
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 3;
