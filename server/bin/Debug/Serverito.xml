@@ -1,0 +1,561 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Serverito</name>
+    </assembly>
+    <members>
+        <member name="M:ServeritoTest.Program.Main(System.String[])">
+            <summary>
+            'Main' to quickly test the lib by building it as console app.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="T:Serverito.BreakCallbacks">
+            <summary>
+            Throw this exception from an event handler (for example from 'OnNewRawRequest' callback) to break the callbacks chain
+            and not continue to next callback.
+            </summary>
+        </member>
+        <member name="M:Serverito.BreakCallbacks.#ctor">
+            <summary>
+            Break callbacks chain.
+            </summary>
+        </member>
+        <member name="T:Serverito.AbortRequest">
+            <summary>
+            Throw this exception from an event handler (for example from 'OnNewRawRequest' callback) to break the callbacks chain and abort the request.
+            This will call the respnse Abort() and stop handling this request immediately.
+            </summary>
+        </member>
+        <member name="M:Serverito.AbortRequest.#ctor">
+            <summary>
+            Abort and stop processing current request.
+            </summary>
+        </member>
+        <member name="T:Serverito.StopProcessingRequest">
+            <summary>
+            Throw this exception from an event handler (for example from 'OnNewRawRequest' callback) to break the callbacks chain and stop processing the request.
+            This will not call Abort(), but will stop processing the request immediately.
+            </summary>
+        </member>
+        <member name="M:Serverito.StopProcessingRequest.#ctor">
+            <summary>
+            Stop processing current request.
+            </summary>
+        </member>
+        <member name="T:Serverito.HttpMethods">
+            <summary>
+            Define all HTTP method strings.
+            </summary>
+        </member>
+        <member name="F:Serverito.HttpMethods.GET">
+            <summary>
+            Http GET.
+            </summary>
+        </member>
+        <member name="F:Serverito.HttpMethods.HEAD">
+            <summary>
+            Http HEAD.
+            </summary>
+        </member>
+        <member name="F:Serverito.HttpMethods.POST">
+            <summary>
+            Http POST.
+            </summary>
+        </member>
+        <member name="F:Serverito.HttpMethods.PUT">
+            <summary>
+            Http PUT.
+            </summary>
+        </member>
+        <member name="F:Serverito.HttpMethods.DELETE">
+            <summary>
+            Http DELETE.
+            </summary>
+        </member>
+        <member name="F:Serverito.HttpMethods.CONNECT">
+            <summary>
+            Http CONNECT.
+            </summary>
+        </member>
+        <member name="F:Serverito.HttpMethods.OPTIONS">
+            <summary>
+            Http OPTIONS.
+            </summary>
+        </member>
+        <member name="F:Serverito.HttpMethods.PATCH">
+            <summary>
+            Http PATCH.
+            </summary>
+        </member>
+        <member name="T:Serverito.ServeritoContext">
+            <summary>
+            Request context inside 'Serverito' app.
+            Basically this is just the 'HttpListenerContext' object wrapped with some metadata.
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoContext.Context">
+            <summary>
+            Http listener context object.
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoContext.UserData">
+            <summary>
+            Optional user data you can attach to context.
+            </summary>
+        </member>
+        <member name="T:Serverito.HandleExceptionsCallback">
+            <summary>
+            A delegate to handle exceptins we catch from requests handlers or while getting a request.
+            </summary>
+            <param name="context">Context object that contains HTTP listener context + some metadata (or null if not yet valid).</param>
+            <param name="exception">Exception we got.</param>
+        </member>
+        <member name="T:Serverito.HandleRequestsCallback">
+            <summary>
+            A delegate to handle new requests or requests that don't match any URL.
+            </summary>
+            <param name="context">Context object that contains HTTP listener context + some metadata.</param>
+        </member>
+        <member name="T:Serverito.ViewFunction">
+            <summary>
+            A delegate to handle new requests or requests that don't match any URL.
+            </summary>
+            <param name="context">Context object that contains HTTP listener context + some metadata.</param>
+        </member>
+        <member name="T:Serverito.StaticFilesReader">
+            <summary>
+            A callback to handle reading files.
+            </summary>
+            <param name="path">File path.</param>
+            <returns>File content as bytes array.</returns>
+        </member>
+        <member name="T:Serverito.ServeritoListener">
+            <summary>
+            The main Serverity class.
+            This object listen to incoming HTTP requests and dispatch them based on defined URL and handlers.
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener.Version">
+            <summary>
+            Current version.
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener._listener">
+            <summary>
+            Our main listener.
+            </summary>
+        </member>
+        <member name="T:Serverito.ServeritoListener.View">
+            <summary>
+            An object to connect a URL pattern to a view function.
+            </summary>
+        </member>
+        <member name="P:Serverito.ServeritoListener.View.UrlPattern">
+            <summary>
+            Url pattern to match.
+            </summary>
+        </member>
+        <member name="P:Serverito.ServeritoListener.View.ViewFunc">
+            <summary>
+            View function to call.
+            </summary>
+        </member>
+        <member name="M:Serverito.ServeritoListener.View.#ctor(Serverito.URL,Serverito.ViewFunction)">
+            <summary>
+            Create the view.
+            </summary>
+            <param name="url">URL pattern to match.</param>
+            <param name="func">View function.</param>
+        </member>
+        <member name="F:Serverito.ServeritoListener._views">
+            <summary>
+            Views to process requests with.
+            Will iterate by order of insertion and use the first view that match URL pattern.
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener.UseThreads">
+            <summary>
+            Should we use threads with this listener or process everything on the same thread?
+            When using threads a new thread will be created per request.
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener.CloseRequests">
+            <summary>
+            If true, the server app will close requests after handling them automatically.
+            If false, you need to close them yourself.
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener.UseChunks">
+            <summary>
+            Should we send responses by chunks by default?
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener.SetMimeContentType">
+            <summary>
+            If true and serving static files, will set content type automatically for known mime types based on file extension.
+            If false, all files will be served with content type of application/octet-stream.
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener._encodingToCharsetString">
+            <summary>
+            Convert encoding enum to string we need to set in response content type.
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener.StaticFilesEncodingType">
+            <summary>
+            What encoding type to set by default for static files we serve.
+            Choose 'Default' if you don't want to set 'charset' in content-type at all.
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener.StaticFilesRootUrl">
+            <summary>
+            Static files root url.
+            Define this property if you want to automatically serve static files from a pre-defined URL.
+            For example, if you set this to "/static/", whenever a user tries to GET from '/static/xxx/' URL, we'll look for the
+            file xxx under StaticFilesPath and serve it. If file not found, will return 404.
+            
+            Note: must end with a trailing slash.
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener.StaticFilesPath">
+            <summary>
+            Static files path on server.
+            This is the folder on this machine the server will look for static files to serve.
+            If you define StaticFilesRootUrl you must also define this property.
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener.StaticFilesReader">
+            <summary>
+            Function used to read static files content.
+            You can override this handler to change the way you read files (for example if you want to add files caching mechanism).
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener.OnException">
+            <summary>
+            Optional callbacks to handle caught exceptions.
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener.OnNewRawRequest">
+            <summary>
+            Optional callbacks to handle new requests before we start processing them.
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener.OnUndefinedURL">
+            <summary>
+            Optional callbacks to handle requests that don't match any of our URLs.
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener.OnFinishHandlingRequest">
+            <summary>
+            Optional callbacks to handle requests right before we're done with them (before closing them).
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener.OnUrlMatching">
+            <summary>
+            Optional callbacks to handle requests right before we start matching the URL against views to decide which view to call.
+            Note: this won't be called for requests to get static files.
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener.OnPassingRequestToView">
+            <summary>
+            Optional callbacks to handle requests right before we call the view to handle them (called only if a view is found).
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener.OnServingFile">
+            <summary>
+            Optional callback to handle files we serve right before closing the response.
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener.OnMissingFile">
+            <summary>
+            Optional callback to handle when trying to serve a non-existing file.
+            </summary>
+        </member>
+        <member name="F:Serverito.ServeritoListener.OnFinishedProcessingView">
+            <summary>
+            Optional callbacks to handle requests that we handled with a view (after the view function called).
+            </summary>
+        </member>
+        <member name="M:Serverito.ServeritoListener.#ctor(System.String)">
+            <summary>
+            Create a new Serverito app for a single host.
+            </summary>
+            <param name="host">Host to listen to (in format "protocol://domain:port", eg "http://somedomain.com:80").</param>
+        </member>
+        <member name="M:Serverito.ServeritoListener.#ctor(System.String[])">
+            <summary>
+            Create a sync server.
+            </summary>
+            <param name="hosts">List of hosts to listen to (in format "protocol://domain:port", eg "http://somedomain.com:80").</param>
+        </member>
+        <member name="M:Serverito.ServeritoListener.Finalize">
+            <summary>
+            Serverito destructor.
+            </summary>
+        </member>
+        <member name="M:Serverito.ServeritoListener.Stop">
+            <summary>
+            Stop listening.
+            </summary>
+        </member>
+        <member name="M:Serverito.ServeritoListener.Abort">
+            <summary>
+            Abort immediately, dumping all messages in queue.
+            </summary>
+        </member>
+        <member name="M:Serverito.ServeritoListener.Start">
+            <summary>
+            Start listening to incoming requests.
+            </summary>
+        </member>
+        <member name="M:Serverito.ServeritoListener.AddView(Serverito.URL,Serverito.ViewFunction)">
+            <summary>
+            Define a new view, eg a URL leading to a function to handle request.
+            </summary>
+            <param name="url">URL pattern to match.</param>
+            <param name="func">Function to handle the request.</param>
+        </member>
+        <member name="M:Serverito.ServeritoListener.HandleRequest(Serverito.ServeritoContext)">
+            <summary>
+            Handle a single incoming request.
+            Note: this function can run inside or outside a thread, depends on config.
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Serverito.ServeritoListener.IsStaticFileRequest(System.Net.HttpListenerRequest)">
+            <summary>
+            Get if a given context is a request to get a static file.
+            Note: only works if you define 'StaticFilesRootUrl'.
+            </summary>
+            <param name="request">Request data to check.</param>
+            <returns>If the request is for a static file.</returns>
+        </member>
+        <member name="M:Serverito.ServeritoListener.ServeStaticFile(Serverito.ServeritoContext,System.String,System.Boolean)">
+            <summary>
+            Serve a static file.
+            Note: will close request even if 'CloseRequests' is set to false.
+            </summary>
+            <param name="context">Context containing the request to serve file for.</param>
+            <param name="path">Path of file to serve, under 'StaticFilesPath'.</param>
+            <param name="serveHtml">If true, instead of serving file as a file it will render it as an HTML page.</param>
+        </member>
+        <member name="M:Serverito.ServeritoListener.ServeHtmlPage(Serverito.ServeritoContext,System.String)">
+            <summary>
+            Serve an HTML file as a webpage.
+            Note: this works using the static files mechanism, eg you must set 'StaticFilesPath' path for it to work.
+            </summary>
+            <param name="context">Context containing the request to serve file for.</param>
+            <param name="path">Path of file to serve, under 'StaticFilesPath'.</param>
+        </member>
+        <member name="M:Serverito.ServeritoListener.HandleException(Serverito.ServeritoContext,System.Exception)">
+            <summary>
+            Handle an exception while handling a request.
+            </summary>
+            <param name="context">Request context, or null if the error happened while trying to get context.</param>
+            <param name="exp">Exception object.</param>
+        </member>
+        <member name="M:Serverito.ServeritoListener.InvokeCallbacks(Serverito.HandleRequestsCallback,Serverito.ServeritoContext)">
+            <summary>
+            Invoke event handlers.
+            </summary>
+            <param name="callbacks">Callbacks to invoke.</param>
+            <param name="context">Http listener context.</param>
+            <returns>True if we should continue handling this request, false if we need to stop handling it.</returns>
+        </member>
+        <member name="T:Serverito.EncodingType">
+            <summary>
+            Different encoding types.
+            </summary>
+        </member>
+        <member name="F:Serverito.EncodingType.UTF8">
+            <summary>
+            utf-8 encoding.
+            </summary>
+        </member>
+        <member name="F:Serverito.EncodingType.UTF32">
+            <summary>
+            utf-32 encoding.
+            </summary>
+        </member>
+        <member name="F:Serverito.EncodingType.Unicode">
+            <summary>
+            Unicode encoding.
+            </summary>
+        </member>
+        <member name="F:Serverito.EncodingType.Default">
+            <summary>
+            Default system encoding.
+            </summary>
+        </member>
+        <member name="T:Serverito.Utils">
+            <summary>
+            Static class with a collection of misc utils.
+            </summary>
+        </member>
+        <member name="F:Serverito.Utils._extensionToContentType">
+            <summary>
+            A dictionary that convert known file extensions to their corresponding mime content-type.
+            </summary>
+        </member>
+        <member name="F:Serverito.Utils._encoding">
+            <summary>
+            Convert encoding enum to handling class.
+            </summary>
+        </member>
+        <member name="M:Serverito.Utils.#cctor">
+            <summary>
+            Static constructor to setup few things.
+            </summary>
+        </member>
+        <member name="M:Serverito.Utils.FileToBytes(System.String)">
+            <summary>
+            Convert a file to bytes array.
+            </summary>
+            <param name="path">File path.</param>
+            <returns>Bytes array of the file content.</returns>
+        </member>
+        <member name="M:Serverito.Utils.GetIpString(System.Net.HttpListenerContext)">
+            <summary>
+            Get ip address (as string) from context.
+            </summary>
+            <param name="context">Context to get IP from.</param>
+            <returns>IP as string.</returns>
+        </member>
+        <member name="M:Serverito.Utils.GetIpv4String(System.Net.HttpListenerContext)">
+            <summary>
+            Get ip address (as ipv4 string) from context.
+            </summary>
+            <param name="context">Context to get IP from.</param>
+            <returns>IP as string.</returns>
+        </member>
+        <member name="M:Serverito.Utils.GetIpv6String(System.Net.HttpListenerContext)">
+            <summary>
+            Get ip address (as ipv6 string) from context.
+            </summary>
+            <param name="context">Context to get IP from.</param>
+            <returns>IP as string.</returns>
+        </member>
+        <member name="M:Serverito.Utils.TryCloseResponse(System.Net.HttpListenerContext)">
+            <summary>
+            Try to close a context response, ignore if fail.
+            </summary>
+            <param name="context">Context response to close.</param>
+        </member>
+        <member name="M:Serverito.Utils.ExtensionToMimeType(System.String)">
+            <summary>
+            Convert file extension to mime type (content-type string).
+            </summary>
+            <param name="extension">File extension, without the dot (eg "doc", "mov", "mp3"...)</param>
+            <returns>Content type string for file type, or null if not found.</returns>
+        </member>
+        <member name="M:Serverito.Utils.ReadRequestInput(System.Net.HttpListenerContext,Serverito.EncodingType)">
+            <summary>
+            Read input from request as string.
+            </summary>
+            <param name="context">Context to read request input from.</param>
+            <param name="encoding">Encoding to use.</param>
+            <returns>Request input as string.</returns>
+        </member>
+        <member name="M:Serverito.Utils.StringToBytes(System.String,Serverito.EncodingType)">
+            <summary>
+            Convert string to bytes array.
+            </summary>
+            <param name="data">String to convert.</param>
+            <param name="encoding">Encoding to use.</param>
+            <returns>String bytes array.</returns>
+        </member>
+        <member name="M:Serverito.Utils._ForceTrailingSlashHandler(Serverito.ServeritoContext)">
+            <summary>
+            Force a trailing slash by redirecting if trailing slash is absent.
+            To use this function set it as a callback for OnUrlMatching, eg:
+            server.OnUrlMatching += Utils._ForceTrailingSlashHandler;
+            </summary>
+        </member>
+        <member name="M:Serverito.Utils.ForceTrailingSlash(Serverito.ServeritoListener)">
+            <summary>
+            Make a server listener force all URLs to end with trailing slashes.
+            Whenever a user enter a URL without a training slash, it will redirect to the URL with slash.
+            Note: uses the events mechanism internally, clearing event callbacks might undo this call.
+            </summary>
+            <param name="listener">Listener to set.</param>
+        </member>
+        <member name="M:Serverito.Utils._DumpExceptionsToResponseHandler(Serverito.ServeritoContext,System.Exception)">
+            <summary>
+            Dump all exceptions to response.
+            To use this function set it as a callback for OnException, eg:
+            server.OnException += Utils._DumpExceptionsToResponseHandler;
+            </summary>
+        </member>
+        <member name="M:Serverito.Utils.DumpExceptionsToResponse(Serverito.ServeritoListener)">
+            <summary>
+            Make a server listener dump all exceptions directly to response.
+            Use for debugging only! Very unsafe for production..
+            Note: uses the events mechanism internally, clearing event callbacks might undo this call.
+            </summary>
+            <param name="listener">Listener to set.</param>
+        </member>
+        <member name="M:Serverito.Utils.WriteToResponse(System.Net.HttpListenerContext,System.String)">
+            <summary>
+            Write string to response output stream.
+            Note: will not close response.
+            </summary>
+            <param name="context">Context to write string into response.</param>
+            <param name="data">Data to write.</param>
+        </member>
+        <member name="T:Serverito.UrlMatchingType">
+            <summary>
+            Different ways to match URLs.
+            </summary>
+        </member>
+        <member name="F:Serverito.UrlMatchingType.Exact">
+            <summary>
+            The request URL must match exactly the url pattern.
+            </summary>
+        </member>
+        <member name="F:Serverito.UrlMatchingType.StartsWith">
+            <summary>
+            The request URL should match the begining of the pattern.
+            </summary>
+        </member>
+        <member name="F:Serverito.UrlMatchingType.EndsWith">
+            <summary>
+            The request URL should match the ending of the pattern.
+            </summary>
+        </member>
+        <member name="F:Serverito.UrlMatchingType.RegEx">
+            <summary>
+            The request URL would be matched against pattern as a regex.
+            </summary>
+        </member>
+        <member name="T:Serverito.URL">
+            <summary>
+            An object to test URL matching.
+            We use these objects to map URLs to views.
+            </summary>
+        </member>
+        <member name="M:Serverito.URL.#ctor(System.String,System.String,Serverito.UrlMatchingType)">
+            <summary>
+            Create the URL pattern.
+            </summary>
+            <param name="pattern">Pattern to match.</param>
+            <param name="method">Optional filter by HTTP method (see HttpMethods for options).</param>
+            <param name="matchType">How to match pattern.</param>
+        </member>
+        <member name="M:Serverito.URL.#ctor(System.Text.RegularExpressions.Regex,System.String)">
+            <summary>
+            Create the URL pattern from regex.
+            </summary>
+            <param name="regex">Regex to match.</param>
+            <param name="method">Optional filter by HTTP method (see HttpMethods for options).</param>
+        </member>
+        <member name="M:Serverito.URL.IsMatch(System.String,System.String)">
+            <summary>
+            Check if a given URL match the pattern.
+            </summary>
+            <param name="url">URL to check.</param>
+            <param name="httpMethod">HTTP method.</param>
+            <returns>If url match.</returns>
+        </member>
+    </members>
+</doc>
