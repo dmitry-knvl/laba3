@@ -1,12 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="preload" href="./fonts/MontserratAlternates-Regular.ttf" as="font">
+    <link rel="preload" href="./fonts/MontserratAlternates-Bold.ttf" as="font">
+
     <title>Лабараторная работа №3</title>
+    
     <script src="js/jquery.js"></script>
     <script src="js/chart.js"></script>
     <script src="js/script.js"></script>
 </head>
 <body>
-    <canvas id="graph"></canvas>
+    <div class="scheme">
+    <nav class="navigation">
+        <h1 class="title">Выберете схему:</h1>
+        <ul class="variant__list">
+            <li class="variant__item variant__item--8">
+                <button class="variant__btn" id="salaries_btn" >Вариант 8</button>
+            </li>
+            <li class="variant__item variant__item--12">
+                <button class="variant__btn" id="deseases_btn" >Вариант 12</button>
+            </li>
+            <li class="variant__item variant__item--15">
+                <button class="variant__btn" id="gases_btn" >Вариант 15</button>
+            </li>
+        </ul>
+    </nav>
+    <section class="table-scheme">
+        <p class="text">таблица</p>
+        <table class="table" id="table"></table>
+    </section>
+    <section class="graph-scheme">
+        <p class="text">график</p>
+        <canvas class="graph" id="graph"></canvas>
+    </section>
+    </div>
 </body>
 </html>
