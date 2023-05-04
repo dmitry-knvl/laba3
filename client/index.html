@@ -1,43 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Графики с Chart.js</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3labRab</title>
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-    <canvas id="myChart"></canvas>
-
-    <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
-
-        var chartData = {
-            labels: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь'],
-            datasets: [{
-                label: 'График 1',
-                borderColor: 'red',
-                data: [10, 20, 30, 40, 50, 60]
-            }, {
-                label: 'График 2',
-                borderColor: 'blue',
-                data: [20, 30, 10, 40, 30, 50]
-            }, {
-                label: 'График 3',
-                borderColor: 'green',
-                data: [40, 10, 50, 20, 30, 10]
-            }]
-        };
-
-        var chartOptions = {
-            responsive: true,
-            maintainAspectRatio: false
-        };
-
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: chartData,
-            options: chartOptions
-        });
-
-    </script>
+    <div class="scheme">
+    <nav class="navigation">
+        <h1 class="title">Выберете схему:</h1>
+        <ul class="variant__list">
+            <li class="variant__item variant__item--8">
+                <button class="variant__btn" id="salaries_btn" >Вариант 8</button>
+            </li>
+            <li class="variant__item variant__item--12">
+                <button class="variant__btn" id="deseases_btn" >Вариант 12</button>
+            </li>
+            <li class="variant__item variant__item--15">
+                <button class="variant__btn" id="gases_btn" >Вариант 15</button>
+            </li>
+        </ul>
+    </nav>
+    <section class="table-scheme">
+        <table class="table" id="table"></table>
+    </section>
+    <section class="graph-scheme">
+        <canvas class="graph" id="graph"></canvas>
+    </section>
+    </div>
 </body>
 </html>
