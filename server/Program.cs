@@ -26,7 +26,8 @@ class Program
             HttpListenerResponse response = context.Response;
 
             // Задаём путь к первому открываемому файлу
-            string path = directory+context.Request.RawUrl+"index.html";
+            string path = directory+context.Request.RawUrl;
+            if (context.Request.RawUrl == "/") path += "index.html";
             Console.WriteLine("Raw URL: {0}", context.Request.RawUrl);
 
             if (File.Exists(path)) {
