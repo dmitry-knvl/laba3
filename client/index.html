@@ -1,0 +1,46 @@
+<<<<<<< Updated upstream
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Графики с Chart.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="myChart"></canvas>
+
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        var chartData = {
+            labels: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь'],
+            datasets: [{
+                label: 'График 1',
+                borderColor: 'red',
+                data: [10, 20, 30, 40, 50, 60]
+            }, {
+                label: 'График 2',
+                borderColor: 'blue',
+                data: [20, 30, 10, 40, 30, 50]
+            }, {
+                label: 'График 3',
+                borderColor: 'green',
+                data: [40, 10, 50, 20, 30, 10]
+            }]
+        };
+
+        var chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false
+        };
+
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: chartData,
+            options: chartOptions
+        });
+
+    </script>
+</body>
+</html>
+>>>>>>> Stashed changes
