@@ -94,11 +94,10 @@ while (true) {
         </ul>
     </nav>
     <section class="table-scheme">
-        <p class="text">таблица</p>
+        <p class="text" id="selectedSchema">таблица</p>
         <table class="table" id="table"></table>
     </section>
     <section class="graph-scheme">
-        <p class="text">график</p>
         <canvas class="graph" id="graph"></canvas>
     </section>
     </div>
@@ -110,99 +109,9 @@ while (true) {
 
 Сами данные хранятся в дата-файлах с расширением `.json`.
 
-<details> <summary>Пример кода файла с данными</summary>
-    
-```json
-{
-    "schema": {
-        "parameterName": "Salaries",
-        "data": [
-            {
-                "year": 2007,
-                "value": 11875.5,
-                "name": "М"
-            },
-            {
-                "year": 2008,
-                "value": 14625.5,
-                "name": "М"
-            },
-            {
-                "year": 2009,
-                "value": 15895.5,
-                "name": "М"
-            },
-            {
-                "year": 2010,
-                "value": 17973.3,
-                "name": "М"
-            },
-            {
-                "year": 2011,
-                "value": 20115,
-                "name": "М"
-            },
-            {
-                "year": 2012,
-                "value": 21617,5,
-                "name": "М"
-            },
-            {
-                "year": 2013,
-                "value": 23059,
-                "name": "М"
-            },
-            {
-                "year": 2014,
-                "value": 25263,
-                "name": "М"
-            },
-            {
-                "year": 2015,
-                "value": 26731,
-                "name": "М"
-            },
-            {
-                "year": 2016,
-                "value": 28997,75,
-                "name": "М"
-            },
-            {
-                "year": 2017,
-                "value": 31124,5,
-                "name": "М"
-            },
-            {
-                "year": 2018,
-                "value": 34436,
-                "name": "М"
-            },
-            {
-                "year": 2019,
-                "value": 37486,5,
-                "name": "М"
-            },
-            {
-                "year": 2020,
-                "value": 40627,75,
-                "name": "М"
-            },            
-            {
-                "year": 2021,
-                "value": 44854,
-                "name": "М"
-            },            
-            {
-                "year": 2022,
-                "value": 44333,
-                "name": "М"
-            }
-        ]
-    } 
-}
-```
-    
-</details>
+#### Результат работы:
+
+![Скриншот страницы](https://github.com/dmitry-knvl/laba3/assets/102412482/b33b04ae-22e9-4bab-840d-604c7afcc929 "Внешний вид страницы")
 
 ---
 
