@@ -1,6 +1,6 @@
 {
     "schema": {
-        "parameterName": "Salaries",
+        "parameterName": "Медианная заработная плата",
         "data": [
             {
                 "year": 2007,

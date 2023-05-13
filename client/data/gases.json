@@ -1,6 +1,6 @@
 {
     "schema": {
-        "parameterName": "Выбросы (в тыс. т)",
+        "parameterName": "Выбросы парниковых газов (в млн. т)",
         "data": [
             {
                 "year": 2007,

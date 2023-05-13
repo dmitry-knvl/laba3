@@ -1,323 +1,323 @@
 {
     "schema": {
-        "parameterName": "",
+        "parameterName": "Инфекционные заболевания (в тыс. чел.)",
         "data": [
             {
                 "year": 2007,
-                "value": 0,
-                "name": ""
+                "value": 123.2,
+                "name": "Туберкулез"
             },
                 "year": 2007,
-                "value": 0,
-                "name": ""
+                "value": 1097.5,
+                "name": "Ветряная оспа"
             },
                 "year": 2007,
-                "value": 0,
-                "name": ""
+                "value": 153.15,
+                "name": "ВИЧ"
             },
                 "year": 2007,
-                "value": 0,
-                "name": ""
+                "value": 784.6,
+                "name": "Пневмония"
             },
             {
                 "year": 2008,
-                "value": 0,
-                "name": ""
+                "value": 124.15,
+                "name": "Туберкулез"
             },
             {
                 "year": 2008,
-                "value": 0,
-                "name": ""
+                "value": 1067.7,
+                "name": "Ветряная оспа"
             },
             {
                 "year": 2008,
-                "value": 0,
-                "name": ""
+                "value": 172.7,
+                "name": "ВИЧ"
             },
             {
                 "year": 2008,
-                "value": 0,
-                "name": ""
+                "value": 763.2,
+                "name": "Пневмония"
             },
             {
                 "year": 2009,
-                "value": 0,
-                "name": ""
+                "value": 122.1,
+                "name": "Туберкулез"
             },
             {
                 "year": 2009,
-                "value": 0,
-                "name": ""
+                "value": 1011.9,
+                "name": "Ветряная оспа"
             },
             {
                 "year": 2009,
-                "value": 0,
-                "name": ""
+                "value": 191.8,
+                "name": "ВИЧ"
             },
             {
                 "year": 2009,
-                "value": 0,
-                "name": ""
+                "value": 723.4,
+                "name": "Пневмония"
             },
             {
                 "year": 2010,
-                "value": 0,
-                "name": ""
+                "value": 115.7,
+                "name": "Туберкулез"
             },
             {
                 "year": 2010,
-                "value": 0,
-                "name": ""
+                "value": 965.4,
+                "name": "Ветряная оспа"
             },
             {
                 "year": 2010,
-                "value": 0,
-                "name": ""
+                "value": 215.05,
+                "name": "ВИЧ"
             },
             {
                 "year": 2010,
-                "value": 0,
-                "name": ""
+                "value": 690.1,
+                "name": "Пневмония"
             },
             {
                 "year": 2011,
-                "value": 0,
-                "name": ""
+                "value": 110.15,
+                "name": "Туберкулез"
             },
             {
                 "year": 2011,
-                "value": 0,
-                "name": ""
+                "value": 952.2,
+                "name": "Ветряная оспа"
             },
             {
                 "year": 2011,
-                "value": 0,
-                "name": ""
+                "value": 240.95,
+                "name": "ВИЧ"
             },
             {
                 "year": 2011,
-                "value": 0,
-                "name": ""
+                "value": 680.7,
+                "name": "Пневмония"
             },
             {
                 "year": 2012,
-                "value": 0,
-                "name": ""
+                "value": 104.25,
+                "name": "Туберкулез"
             },
             {
                 "year": 2012,
-                "value": 0,
-                "name": ""
+                "value": 945.2,
+                "name": "Ветряная оспа"
             },
             {
                 "year": 2012,
-                "value": 0,
-                "name": ""
+                "value": 249.05,
+                "name": "ВИЧ"
             },
             {
                 "year": 2012,
-                "value": 0,
-                "name": ""
+                "value": 675.7,
+                "name": "Пневмония"
             },
             {
                 "year": 2013,
-                "value": 0,
-                "name": ""
+                "value": 98.2,
+                "name": "Туберкулез"
             },
             {
                 "year": 2013,
-                "value": 0,
-                "name": ""
+                "value": 912.7,
+                "name": "Ветряная оспа"
             },
             {
                 "year": 2013,
-                "value": 0,
-                "name": ""
+                "value": 263.5,
+                "name": "ВИЧ"
             },
             {
                 "year": 2013,
-                "value": 0,
-                "name": ""
+                "value": 652.4,
+                "name": "Пневмония"
             },
             {
                 "year": 2014,
-                "value": 0,
-                "name": ""
+                "value": 94,
+                "name": "Туберкулез"
             },
             {
                 "year": 2014,
-                "value": 0,
-                "name": ""
+                "value": 927.1,
+                "name": "Ветряная оспа"
             },
             {
                 "year": 2014,
-                "value": 0,
-                "name": ""
+                "value": 298.1,
+                "name": "ВИЧ"
             },
             {
                 "year": 2014,
-                "value": 0,
-                "name": ""
+                "value": 662.7,
+                "name": "Пневмония"
             },
             {
                 "year": 2015,
-                "value": 0,
-                "name": ""
+                "value": 76.28,
+                "name": "Туберкулез"
             },
             {
                 "year": 2015,
-                "value": 0,
-                "name": ""
+                "value": 819.828,
+                "name": "Ветряная оспа"
             },
             {
                 "year": 2015,
-                "value": 0,
-                "name": ""
+                "value": 334.5,
+                "name": "ВИЧ"
             },
             {
                 "year": 2015,
-                "value": 0,
-                "name": ""
+                "value": 492.66,
+                "name": "Пневмония"
             },
             {
                 "year": 2016,
-                "value": 0,
-                "name": ""
+                "value": 71.386,
+                "name": "Туберкулез"
             },
             {
                 "year": 2016,
-                "value": 0,
-                "name": ""
+                "value": 795.594,
+                "name": "Ветряная оспа"
             },
             {
                 "year": 2016,
-                "value": 0,
-                "name": ""
+                "value": 372.5,
+                "name": "ВИЧ"
             },
             {
                 "year": 2016,
-                "value": 0,
-                "name": ""
+                "value": 611.082,
+                "name": "Пневмония"
             },
             {
                 "year": 2017,
-                "value": 0,
-                "name": ""
+                "value": 65.47,
+                "name": "Туберкулез"
             },
             {
                 "year": 2017,
-                "value": 0,
-                "name": ""
+                "value": 858.612,
+                "name": "Ветряная оспа"
             },
             {
                 "year": 2017,
-                "value": 0,
-                "name": ""
+                "value": 389.5,
+                "name": "ВИЧ"
             },
             {
                 "year": 2017,
-                "value": 0,
-                "name": ""
+                "value": 604.878,
+                "name": "Пневмония"
             },
             {
                 "year": 2018,
-                "value": 0,
-                "name": ""
+                "value": 60.545,
+                "name": "Туберкулез"
             },
             {
                 "year": 2018,
-                "value": 0,
-                "name": ""
+                "value": 837.829,
+                "name": "Ветряная оспа"
             },
             {
                 "year": 2018,
-                "value": 0,
-                "name": ""
+                "value": 399.3,
+                "name": "ВИЧ"
             },
             {
                 "year": 2018,
-                "value": 0,
-                "name": ""
+                "value": 721.926,
+                "name": "Пневмония"
             },
             {
                 "year": 2019,
-                "value": 0,
-                "name": ""
+                "value": 55.84,
+                "name": "Туберкулез"
             },
             {
                 "year": 2019,
-                "value": 0,
-                "name": ""
+                "value": 820.614,
+                "name": "Ветряная оспа"
             },
             {
                 "year": 2019,
-                "value": 0,
-                "name": ""
+                "value": 413.8,
+                "name": "ВИЧ"
             },
             {
                 "year": 2019,
-                "value": 0,
-                "name": ""
+                "value": 760.074,
+                "name": "Пневмония"
             },
             {
                 "year": 2020,
-                "value": 0,
-                "name": ""
+                "value": 13.594,
+                "name": "Туберкулез"
             },
             {
                 "year": 2020,
-                "value": 0,
-                "name": ""
+                "value": 318.006,
+                "name": "Ветряная оспа"
             },
             {
                 "year": 2020,
-                "value": 0,
-                "name": ""
+                "value": 451.1,
+                "name": "ВИЧ"
             },
             {
                 "year": 2020,
-                "value": 0,
-                "name": ""
+                "value": 261.344,
+                "name": "Пневмония"
             },
             {
                 "year": 2021,
-                "value": 0,
-                "name": ""
+                "value": 9.72,
+                "name": "Туберкулез"
             },
             {
                 "year": 2021,
-                "value": 0,
-                "name": ""
+                "value": 194.429,
+                "name": "Ветряная оспа"
             },
             {
                 "year": 2021,
-                "value": 0,
-                "name": ""
+                "value": 455.3,
+                "name": "ВИЧ"
             },
             {
                 "year": 2021,
-                "value": 0,
-                "name": ""
+                "value": 455.6,
+                "name": "Пневмония"
             },
             {
                 "year": 2022,
-                "value": 0,
-                "name": ""
+                "value": 9.382,
+                "name": "Туберкулез"
             },
             {
                 "year": 2022,
-                "value": 0,
-                "name": ""
+                "value": 162.76,
+                "name": "Ветряная оспа"
             },
             {
                 "year": 2022,
-                "value": 0,
-                "name": ""
+                "value": 468.4,
+                "name": "ВИЧ"
             },
             {
                 "year": 2022,
-                "value": 0,
-                "name": ""
+                "value": 307.7,
+                "name": "Пневмония"
             }
         ]
     } 
