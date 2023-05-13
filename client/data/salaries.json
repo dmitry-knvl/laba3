@@ -1,0 +1,87 @@
+{
+    "schema": {
+        "parameterName": "Salaries",
+        "data": [
+            {
+                "year": 2007,
+                "value": 11875.5,
+                "name": "М"
+            },
+            {
+                "year": 2008,
+                "value": 14625.5,
+                "name": "М"
+            },
+            {
+                "year": 2009,
+                "value": 15895.5,
+                "name": "М"
+            },
+            {
+                "year": 2010,
+                "value": 17973.3,
+                "name": "М"
+            },
+            {
+                "year": 2011,
+                "value": 20115,
+                "name": "М"
+            },
+            {
+                "year": 2012,
+                "value": 21617.5,
+                "name": "М"
+            },
+            {
+                "year": 2013,
+                "value": 23059,
+                "name": "М"
+            },
+            {
+                "year": 2014,
+                "value": 25263,
+                "name": "М"
+            },
+            {
+                "year": 2015,
+                "value": 26731,
+                "name": "М"
+            },
+            {
+                "year": 2016,
+                "value": 28997.75,
+                "name": "М"
+            },
+            {
+                "year": 2017,
+                "value": 31124.5,
+                "name": "М"
+            },
+            {
+                "year": 2018,
+                "value": 34436,
+                "name": "М"
+            },
+            {
+                "year": 2019,
+                "value": 37486.5,
+                "name": "М"
+            },
+            {
+                "year": 2020,
+                "value": 40627.75,
+                "name": "М"
+            },            
+            {
+                "year": 2021,
+                "value": 44854,
+                "name": "М"
+            },            
+            {
+                "year": 2022,
+                "value": 44333,
+                "name": "М"
+            }
+        ]
+    } 
+}
