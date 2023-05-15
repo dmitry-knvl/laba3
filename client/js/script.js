@@ -22,6 +22,33 @@ $(() => {
     };
     
     // Преобразования данных
+    function findMin(data) {
+        data = groupByName(data);
+        let value;
+        let name;
+        data.forEach((d)=>{
+            let t = d.values[0]/d.values[d.values.length-1];
+            if(!value || value < t) {
+                name = d.name;
+                value = t;
+            }
+        });
+        return name;
+    }
+
+    function findMax(data) {
+        data = groupByName(data);
+        let value;
+        let name;
+        data.forEach((d)=>{
+            let t = d.values[0]/d.values[d.values.length-1];
+            if(!value || value > t) {
+                name = d.name;
+                value = t;
+            }
+        });
+        return name;
+    }
     function groupByName(arr) {
         const nameMap = arr.reduce((acc, obj) => {
           const { name, value } = obj;
@@ -82,7 +109,7 @@ $(() => {
         const tableCells = row.map(cell => `<td>${cell}</td>`).join('');
             return `<tr>${tableCells}</tr>`;
         }).join('');
-        
+
         return `${tableRows}`;
     }
 
@@ -114,6 +141,28 @@ $(() => {
         res += '</tr>';
 
         res += toTableHtml(toTableData(activeSchema.data));
+
+        if(activeSchema.id == 2 || activeSchema.id == 3){
+            res += `<tr>
+                        <td><b>Снизилось<br>больше всего:</b></td>
+                        <td><b>${findMin(activeSchema.data)}</b></td>
+                        <td><b>Снизилось<br>меньше всего:</b></td>
+                        <td><b>${findMax(activeSchema.data)}</b></td>
+                    </tr>`;
+        }
+        if(activeSchema.id == 1){
+            let m = groupByName(activeSchema.data)[0];
+            m = m.values[m.values.length-1] / m.values[0];
+            let w = groupByName(activeSchema.data)[1];
+            w = w.values[w.values.length-1] / w.values[0];
+
+            res += `<tr>
+                        <td><b>Рост у мужчин</b></td>
+                        <td><b>${(m*100).toFixed(1)}%</b></td>
+                        <td><b>Рост у женщин</b></td>
+                        <td><b>${(w*100).toFixed(1)}%</b></td>
+                    </tr>`;
+        }
         $("#table").html(res);
         console.log(res);
     }
@@ -133,7 +182,7 @@ $(() => {
         fetch("./data/"+target+".json")
         .then(response => response.json())
         .then(data => {
-          activeSchema = data.schema;
+            activeSchema = data.schema;
             update();
         })
         .catch(error => console.error(error));
